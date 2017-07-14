@@ -4,6 +4,8 @@
 var sequelize = require('sequelize');
 var passwordHash = require('password-hash');
 var model = require('../models');
+var jwt = require('jsonwebtoken');
+var key = require('../config/key');
 
 
 module.exports = {
@@ -40,9 +42,15 @@ module.exports = {
             }
         }).then(function(user){
             if(passwordHash.verify(req.body.password,user.password)) {
+                var token = jwt.sign(
+                    {email:user.email},
+                    key.secret_key,
+                    {expiresIn: 24*60*60}
+                );
                 return res.json({
                     status: "successful",
-                    email: req.body.email
+                    email: req.body.email,
+                    token : token
                 });
             }
             return res.json({error : "Login Failed", status : "failed"});
