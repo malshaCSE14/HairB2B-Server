@@ -1,22 +1,16 @@
-/**
- * Created by malsha_h on 7/5/2017.
- */
-var db = require('../dbconnection');
-
-
-exports.signUp = function (callback,post) {
-    // var post  = {firstname:'me', lastname:'you', email:'hi', password:'yes'};
-    db.query('INSERT INTO user (first_name, last_name , email, password) VALUES (?,?,?,?)', [post.first_name,post.last_name,post.email,post.password], function(err, rows) {
-        // db.query('select * from user', function(err, rows) {
-        if (err) throw err;
-        return callback("success");
-    });
-};
-exports.signIn = function (callback,post) {
-    // var post  = {firstname:'me', lastname:'you', email:'hi', password:'yes'};
-    db.query('INSERT INTO user (first_name, last_name , email, password) VALUES (?,?,?,?)', [post.first_name,post.last_name,post.email,post.password], function(err, rows) {
-        // db.query('select * from user', function(err, rows) {
-        if (err) throw err;
-        return callback("success");
-    });
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var user = sequelize.define('user', {
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
+    }
+  });
+  return user;
 };

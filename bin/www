@@ -5,8 +5,9 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('hairb2bback:server');
+var debug = require('debug')('Back4:server');
 var http = require('http');
+var models = require('../models');
 
 /**
  * Get port from environment and store in Express.
@@ -21,6 +22,9 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+models.sequelize.sync().then(function () {
+    console.log("Database is connected");
+});
 /**
  * Listen on provided port, on all network interfaces.
  */

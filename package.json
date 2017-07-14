@@ -1,5 +1,5 @@
 {
-  "name": "hairb2bback",
+  "name": "untitled1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,28 @@
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
-    "cors": "^2.8.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "jade": "~1.11.0",
     "morgan": "~1.8.1",
-    "mysql": "^2.5.4",
+    "mysql2": "^1.3.5",
+    "sequelize": "^4.3.0",
     "serve-favicon": "~2.4.2"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malshaCSE14/HairB2B-Server.git"
+  },
+  "keywords": [
+    "\"example\""
+  ],
+  "author": "\"herok\u001b[D\u001b[D\u001b[",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malshaCSE14/HairB2B-Server/issues"
+  },
+  "homepage": "https://github.com/malshaCSE14/HairB2B-Server#readme",
+  "description": ""
 }
